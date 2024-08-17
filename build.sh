@@ -1,3 +1,5 @@
-printf "package transform\nimport _ \"github.com/AdamKorcz/go-118-fuzz-build/testing\"\n" > $SRC/sample-fuzz/reverse_fuzz_test.go
+printf "package transform\nimport _ \"github.com/AdamKorcz/go-118-fuzz-build/testing\"\n" > $SRC/sample-fuzz/register.go
+ls -l
 go mod tidy
-compile_native_go_fuzzer sample_fuzz FuzzIsValidEmail FuzzIsValidEmail
+go get github.com/prady0t/sample-fuzz/fuzz
+compile_native_go_fuzzer github.com/prady0t/sample-fuzz/fuzz FuzzIsValidEmail FuzzIsValidEmail
