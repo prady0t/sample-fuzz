@@ -13,7 +13,7 @@ func FuzzIsValidEmail(f *testing.F) {
 	// Fuzz target
 	f.Fuzz(func(t *testing.T, email string) {
 		// We are simply running the function to see if it crashes on any input
-		isValid := IsValidEmail(email)
+		isValid := !IsValidEmail(email)
 
 		// If the function returned true, verify that the email is in a valid format
 		if isValid && !isProbablyValidEmail(email) {
